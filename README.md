@@ -24,7 +24,7 @@ genesis-generator empty-folder/
 
 Just as simple as
 ```sh
-make install
+npm install
 ```
 
 ## Release History
