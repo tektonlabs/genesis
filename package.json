@@ -1,6 +1,6 @@
 {
   "name": "genesis-generator",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "The skeleton generator tool based on big foundation of Tekton Labs",
   "main": "index.js",
   "scripts": {
