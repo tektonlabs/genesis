@@ -1,6 +1,6 @@
 {
-  "name": "node-temgen",
-  "version": "1.0.4",
+  "name": "genesis-generator",
+  "version": "0.1",
   "description": "A Simple generator of base proyects as a start point for production apps",
   "main": "index.js",
   "scripts": {
@@ -28,12 +28,12 @@
     "proyect",
     "generate"
   ],
-  "author": "Danny Suarez",
+  "author": "Tekton Labs",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dsuarezlogans/npm-base-project/issues"
+    "url": "https://github.com/tektonlabs/genesis-generator/issues"
   },
-  "homepage": "https://github.com/dsuarezlogans/npm-base-project#readme",
+  "homepage": "https://github.com/tektonlabs/genesis-generator#readme",
   "dependencies": {
     "inquirer": "5.2.0"
   }
