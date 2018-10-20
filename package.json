@@ -1,7 +1,7 @@
 {
-  "name": "node-temgen",
-  "version": "1.0.4",
-  "description": "A Simple generator of base proyects as a start point for production apps",
+  "name": "genesis-generator",
+  "version": "0.1",
+  "description": "The skeleton generator tool based on big foundation of Tekton Labs",
   "main": "index.js",
   "scripts": {
     "test": "test",
@@ -15,25 +15,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dsuarezlogans/npm-base-project.git"
+    "url": "git+https://github.com/tektonlabs/genesis-generator"
   },
   "keywords": [
     "npm",
-    "express",
-    "mongoose",
-    "sequelize",
     "base",
     "production",
     "starter",
-    "proyect",
-    "generate"
+    "project",
+    "generate",
+    "genesis"
   ],
-  "author": "Danny Suarez",
-  "license": "ISC",
+  "author": "Tekton Labs",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dsuarezlogans/npm-base-project/issues"
+    "url": "https://github.com/tektonlabs/genesis-generator/issues"
   },
-  "homepage": "https://github.com/dsuarezlogans/npm-base-project#readme",
+  "homepage": "https://github.com/tektonlabs/genesis-generator#readme",
   "dependencies": {
     "inquirer": "5.2.0"
   }
