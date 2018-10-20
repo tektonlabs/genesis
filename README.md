@@ -1,40 +1,57 @@
-# Welcome to node-temgen!
+# Genesis
+> The skeleton generator tool based on big foundation of Tekton Labs
 
-A node template generator for Rest Api application with Express.js, it is made as a boilerplate of initial setup for production, minimizing the effort of doing this time-consuming job.
+[![NPM Version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Downloads Stats][npm-downloads]][npm-url]
 
-It comes loaded and setup with mongoose as a ORM for MongoDB Databases or Sequelize for SQL Databases, also have setup winston and morgan for handle logging, and a set of usefull dependecies that a web application in node should have.
+Every new project we develop needs a solid base to start so in order to meet our goals we 
+create this tool to standarize project scaffoliding. 
 
-Also comes with mocha, chai, supertest and nyc(istanbul) setup, for testing and code coverage, it have Airbnb javaScript style guide preset and Eslint configured, and a yaml file for CI/CD in gitlab, is ready to deploy in any cloud service prefered.
+![](https://1.bp.blogspot.com/-785ExAu4O5Q/WG5SygJvhbI/AAAAAAAAD_k/K5bSQFaV5yY9S4NE0GsGA0EeOvFrX4pagCLcB/s1600/The-Tree-of-Life.jpg)
 
 ## Installation
 
-    npm install -g node-temgen
+OS X & Linux:
 
-## Quick Start
+```
+npm install genesis-generator -g
+```
 
-To get the base project of your choice generated, go to your terminal an cd to your projects folder then simply run:
+## Usage example
 
-    node-temgen
+```sh
+genesis-generator empty-folder/
+```
 
-It will output:
+## Development setup
 
-    What base project template would you like to generate?
-        >express-mongo
-         express-sql
+Just as simple as
+```sh
+make install
+```
 
-Use your arrows key to select up and down them input your project name like:
+## Release History
 
-    Project name: my-awesome-app
-Then cd to your `my-awesome-app` project folder and run:
+This section is under construction 👷🏽‍♂️👷🏽‍♀️
 
-    npm install
-You can check if averything is correct by running `npm start` and visiting in your browser `http://localhost:3000/hello` if every thing is Ok you will see:
+## Meta
 
-    { message: 'Hello World!!' }
+Tekton Labs - [@tektonlabs](https://twitter.com/tektonlabs) – info@tektonlabs.com
 
-Then you need to create a .env.local and add your enviroment variables as you can see in .env file intructions, for papertrail, you can create an account at `https://papertrailapp.com/login` and configure it in your project so you can have a free log service, pass in host and port to your .env or .env.local file and launch your app to any cloud service.
+Distributed under the MIT license. See ``LICENSE`` for more information.
 
-And that's it, happy coding!!
+## Contributing
 
-------
-**TODO**: add a template with view engine with hbs and any other usefull tool that I don't know yet xD.
+1. Fork it (<https://github.com/yourname/yourproject/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+<!-- Markdown link & img dfn's -->
+[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/datadog-metrics
+[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
