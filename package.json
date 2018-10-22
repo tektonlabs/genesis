@@ -8,7 +8,7 @@
     "debug": "node --inspect-brk=9229 index.js"
   },
   "bin": {
-    "node-temgen": "./index.js"
+    "genesis": "./index.js"
   },
   "engines": {
     "node": ">=8.9.4"
