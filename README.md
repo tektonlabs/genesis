@@ -10,21 +10,21 @@ create this tool to standarize project scaffoliding.
 
 OS X & Linux:
 
-```
-npm install genesis-generator -g
+```sh
+yarn global add genesis-generator
 ```
 
 ## Usage example
 
 ```sh
-genesis-generator empty-folder/
+genesis empty-folder/
 ```
 
 ## Development setup
 
 Just as simple as
 ```sh
-npm install
+node index.js
 ```
 
 ## Release History
@@ -39,7 +39,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 
 ## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
+1. Fork it (<https://github.com/yourname/genesis-generator/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
