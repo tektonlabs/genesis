@@ -19,7 +19,7 @@ const QUESTIONS = [
     message: 'Project name:',
     validate: function (input) {
       if (/^([A-Za-z\-\_\d])+$/.test(input)) return true;
-      else return 'Project name may only include letters, numbers, underscores and hashes.';
+      else return 'Project name may only include letters, numbers, underscores and dashes.';
     }
   }
 ];
@@ -53,7 +53,7 @@ function createDirectoryContents (templatePath, newProjectPath, projectName) {
       fs.writeFileSync(writePath, result, 'utf8');
     } else if (stats.isDirectory()) {
       fs.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`);
-      
+
       // recursive call
       createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`, projectName);
     }
