@@ -27,6 +27,14 @@ Just as simple as
 node index.js
 ```
 
+## Troubleshooting
+
+If your terminal doesn't recognize the 'genesis' command is possible that your yarn bin path is not on the PATH variable. Check or add it appending this line at the end of your ```.bashrc``` file:
+
+```sh
+export PATH="$(yarn global bin):$PATH"
+```
+
 ## Release History
 
 This section is under construction 👷🏽‍♂️👷🏽‍♀️
