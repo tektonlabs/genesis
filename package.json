@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/tektonlabs/genesis-generator#readme",
   "dependencies": {
-    "inquirer": "5.2.0"
+    "inquirer": "5.2.0",
+    "voca": "^1.4.0"
   }
 }

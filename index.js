@@ -2,6 +2,7 @@
 
 const inquirer = require('inquirer');
 const fs = require('fs');
+const v = require('voca');
 
 const CHOICES = fs.readdirSync(`${__dirname}/templates`);
 const CURR_DIR = process.cwd();
@@ -32,10 +33,10 @@ inquirer.prompt(QUESTIONS)
 
       fs.mkdirSync(`${CURR_DIR}/${projectName}`);
 
-      createDirectoryContents(templatePath, projectName, projectName);
+      createDirectoryContents(templatePath, projectName, projectName, projectChoice);
     });
 
-function createDirectoryContents (templatePath, newProjectPath, projectName) {
+function createDirectoryContents (templatePath, newProjectPath, projectName, projectChoice) {
   const filesToCreate = fs.readdirSync(templatePath);
   filesToCreate.forEach(file => {
     const origFilePath = `${templatePath}/${file}`;
@@ -45,17 +46,20 @@ function createDirectoryContents (templatePath, newProjectPath, projectName) {
 
     if (stats.isFile()) {
       const contents = fs.readFileSync(origFilePath, 'utf8');
-      const result = contents.replace(/base-app/g, projectName)
-
-      if (file === '.npmignore') file = '.gitignore';
-
+      var result = "";
+      if (projectChoice === "rails") {
+        projectName = v.capitalize(v.camelCase(projectName));
+        result = contents.replace(/BaseApp/g, projectName);
+      } else {
+        result = contents.replace(/base-app/g, projectName);
+      }
       const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
       fs.writeFileSync(writePath, result, 'utf8');
     } else if (stats.isDirectory()) {
       fs.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`);
 
       // recursive call
-      createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`, projectName);
+      createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`, projectName, projectChoice);
     }
   });
 }
