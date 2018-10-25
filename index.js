@@ -2,7 +2,6 @@
 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const v = require('voca');
 
 const CHOICES = fs.readdirSync(`${__dirname}/templates`);
 const CURR_DIR = process.cwd();
@@ -19,8 +18,8 @@ const QUESTIONS = [
     type: 'input',
     message: 'Project name:',
     validate: function (input) {
-      if (/^([A-Za-z\-\_\d])+$/.test(input)) return true;
-      else return 'Project name may only include letters, numbers, underscores and dashes.';
+      if (/^([A-Za-z][A-Za-z\-\_\d]*)$/.test(input)) return true;
+      else return 'Project name may only include letters, numbers, underscores and dashes, and should starts with a letter.';
     }
   }
 ];
@@ -46,13 +45,12 @@ function createDirectoryContents (templatePath, newProjectPath, projectName, pro
 
     if (stats.isFile()) {
       const contents = fs.readFileSync(origFilePath, 'utf8');
-      var result = "";
+      var appName = /base-app/g;
       if (projectChoice === "rails") {
-        projectName = v.capitalize(v.camelCase(projectName));
-        result = contents.replace(/BaseApp/g, projectName);
-      } else {
-        result = contents.replace(/base-app/g, projectName);
+        appName = /BaseApp/g;
+        projectName = constantizeString(projectName);
       }
+      result = contents.replace(appName, projectName);
       const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
       fs.writeFileSync(writePath, result, 'utf8');
     } else if (stats.isDirectory()) {
@@ -62,4 +60,23 @@ function createDirectoryContents (templatePath, newProjectPath, projectName, pro
       createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`, projectName, projectChoice);
     }
   });
+}
+
+function constantizeString(string) {
+  return capitalizeFirstLetter(toCamelCase(string));
+}
+
+function toCamelCase(string) {
+  string  = string.replace(/\b(\w)/g, captureUppercase);
+  string = string.replace(/_(\w)/g, captureUppercase);
+  string =  string.replace(/-(\w)/g, captureUppercase)
+  return string.replace(/\s+/g, '');
+}
+
+function captureUppercase(match, capture) {
+  return capture.toUpperCase();
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
