@@ -1,0 +1,21 @@
+#!/bin/sh
+
+cd /app/
+rm tmp/pids/server.pid
+
+bundle check || bundle install
+
+# wait for postgresql
+until nc -vz db 5432 2>/dev/null; do
+  echo "Postgresql is not ready, sleeping."
+  sleep 1
+done
+
+echo "Preparing database"
+echo "Create"
+bundle exec rake db:create
+echo "Migrate"
+bundle exec rake db:migrate
+
+echo "Start rails"
+bundle exec rails s -p 3000 -b 0.0.0.0
