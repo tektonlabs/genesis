@@ -3,7 +3,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const appDir = process.cwd();
+const appDir = `${__dirname}/../`;
 const CHOICES = fs.readdirSync(`${appDir}/templates`);
 const CURR_DIR = process.cwd();
 
