@@ -3,7 +3,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const CHOICES = fs.readdirSync(`${__dirname}/templates`);
+const appDir = process.cwd();
+const CHOICES = fs.readdirSync(`${appDir}/templates`);
 const CURR_DIR = process.cwd();
 
 const QUESTIONS = [
@@ -28,7 +29,7 @@ const QUESTIONS = [
 inquirer.prompt(QUESTIONS).then(answers => {
   const projectChoice = answers["base-project-choice"];
   const projectName = answers["project-name"];
-  const templatePath = `${__dirname}/templates/${projectChoice}`;
+  const templatePath = `${appDir}/templates/${projectChoice}`;
 
   fs.mkdirSync(`${CURR_DIR}/${projectName}`);
 
