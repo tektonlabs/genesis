@@ -12,15 +12,11 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
-
-      - run:
-          name: install dependencies
-          command: yarn install --frozen-lockfile
+      -run: yarn install --frozen-lockfile
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - lint:
-          name: lint app
-          command: yarn lint
+
+      - run: yarn lint
