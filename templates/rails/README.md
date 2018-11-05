@@ -1,24 +1,13 @@
-# README
+# Rails Template
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample Rails project to develop web applications.
 
-Things you may want to cover:
+## Features
+* Generated for Postgresql
+* Base Devise Installation
+* Base Docker files for development and deployment
+* Base RSpec + Capybara + Selenium + Headless chrome configuration
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## How to use it
+1. Install docker and docker-compose.
+2. Run ´docker-compose up -d´ in your console.
