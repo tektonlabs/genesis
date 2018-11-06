@@ -13,7 +13,7 @@
     "genesis": "./src/index.js"
   },
   "engines": {
-    "node": ">=8.9.4"
+    "node": ">=8.9.0"
   },
   "repository": {
     "type": "git",
