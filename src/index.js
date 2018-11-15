@@ -31,33 +31,35 @@ const RAILS_QUESTIONS = [
     name: "rails-type",
     type: "list",
     message: "What rails configuration do you want?",
-    choices: [
-      "1. Regular (Postgres - Devise)",
-      "2. Regular with Webpack/Tailwindcss/Vuejs"
-    ]
-  }
+    choices: ["1. Regular (Postgres - Devise)", "2. Regular with Webpack/Tailwindcss/Vuejs"],
+  },
 ];
 
-inquirer.prompt(QUESTIONS).then(answers => {
+main();
+
+async function main() {
+  var answers = await inquirer.prompt(QUESTIONS);
   const projectChoice = answers["base-project-choice"];
   const projectName = answers["project-name"];
   var templatePath = `${appDir}/templates/${projectChoice}`;
 
   fs.mkdirSync(`${CURR_DIR}/${projectName}`);
   if (projectChoice === "rails") {
-    inquirer.prompt(RAILS_QUESTIONS).then(railsAnswers => {
-      const railsChoice = railsAnswers["rails-type"]
-      switch (railsChoice.charAt(0)) {
-        case '1': templatePath = templatePath + "/regular"; break;
-	      case '2': templatePath = templatePath + "/webpackvue"; break;
-	      default: templatePath = templatePath + "/regular";
-      }
-      createDirectoryContents(templatePath, projectName, projectName, projectChoice);
-    })
-  } else {
-    createDirectoryContents(templatePath, projectName, projectName, projectChoice);
+    var railsAnswers = await inquirer.prompt(RAILS_QUESTIONS);
+    const railsChoice = railsAnswers["rails-type"];
+    switch (railsChoice.charAt(0)) {
+      case "1":
+        templatePath = templatePath + "/regular";
+        break;
+      case "2":
+        templatePath = templatePath + "/webpackvue";
+        break;
+      default:
+        templatePath = templatePath + "/regular";
+    }
   }
-});
+  createDirectoryContents(templatePath, projectName, projectName, projectChoice);
+}
 
 function createDirectoryContents(templatePath, newProjectPath, projectName, projectChoice) {
   const filesToCreate = fs.readdirSync(templatePath);
