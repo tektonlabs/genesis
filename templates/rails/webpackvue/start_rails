@@ -1,0 +1,26 @@
+#!/bin/bash
+
+cd /home/user/app
+rm tmp/pids/server.pid
+
+echo "Install Ruby gems"
+bundle check || bundle install
+echo "Install Node modules"
+yarn install
+
+echo "Correct execute permission"
+chmod +x bin/webpack-dev-server
+
+# wait for postgresql
+until nc -vz db 5432 2>/dev/null; do
+  echo "Postgresql is not ready, sleeping."
+  sleep 1
+done
+echo "Preparing database"
+echo "Create"
+bundle exec rake db:create
+echo "Migrate"
+bundle exec rake db:migrate
+
+echo "Start rails"
+/usr/local/bundle/gems/foreman-0.85.0/bin/foreman start -f Procfile
