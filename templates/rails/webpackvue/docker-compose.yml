@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    container_name: BaseApp-db
+  app:
+    build: .
+    container_name: BaseApp-app
+    volumes:
+      - .:/home/user/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
