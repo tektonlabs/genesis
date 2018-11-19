@@ -24,7 +24,7 @@ genesis empty-folder/
 
 Just as simple as
 ```sh
-node index.js
+node src/index.js
 ```
 
 ## Troubleshooting

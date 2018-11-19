@@ -1,17 +1,19 @@
 {
   "name": "genesis-generator",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "The skeleton generator tool based on big foundation of Tekton Labs",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "test",
-    "debug": "node --inspect-brk=9229 index.js"
+    "lint": "eslint 'src/**/*.js'",
+    "format": "prettier --write 'src/**/*.js'",
+    "debug": "node --inspect-brk=9229 src/index.js"
   },
   "bin": {
-    "genesis": "./index.js"
+    "genesis": "./src/index.js"
   },
   "engines": {
-    "node": ">=8.9.4"
+    "node": ">=8.9.0"
   },
   "repository": {
     "type": "git",
@@ -34,5 +36,10 @@
   "homepage": "https://github.com/tektonlabs/genesis-generator#readme",
   "dependencies": {
     "inquirer": "5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "prettier": "^1.14.3"
   }
 }
