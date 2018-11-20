@@ -1,0 +1,17 @@
+laravel:
+  name: Regular
+  repository: 'https://github.com/tektonlabs/regular-laravel-generator.git'
+express:
+  - mongo:
+    name: Mongo
+    repository: 'https://github.com/tektonlabs/express-mongo-generator.git'
+  - sql:
+    name: SQL
+    repository: 'https://github.com/tektonlabs/express-sql-generator.git'
+rails:
+  - regular:
+    name: Regular (Postgres - Devise)
+    repository: 'https://github.com/tektonlabs/regular-rails-generator.git'
+  - webpackvue:
+    name: Regular with Webpack/Tailwindcss/Vuejs
+    repository: 'https://github.com/tektonlabs/webpackvue-rails-generator.git'
