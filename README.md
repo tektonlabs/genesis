@@ -1,4 +1,4 @@
-# Genesis
+# Genesis [![CircleCI](https://circleci.com/gh/tektonlabs/genesis-generator.svg?style=svg)](https://circleci.com/gh/tektonlabs/genesis-generator)
 > The skeleton generator tool based on big foundation of Tekton Labs
 
 Every new project we develop needs a solid base to start so in order to meet our goals we
@@ -17,7 +17,7 @@ yarn global add genesis-generator
 ## Usage example
 
 ```sh
-genesis empty-folder/
+genesis
 ```
 
 ## Development setup
